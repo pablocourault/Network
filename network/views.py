@@ -1,3 +1,4 @@
+import json
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
@@ -85,9 +86,9 @@ def publish(request):
      # Check emptypost
 
     data = json.loads(request.body)
-    contenido = data.get("contenido", "")
+    contenido = data.get("contenido","")
 
-    if contenido == [""]:
+    if len(contenido) == 0:
         return JsonResponse({"error": "empty post."}, status=400)
 
     posteo = Post(usuario=request.user, contents=contenido)
