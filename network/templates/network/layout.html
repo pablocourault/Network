@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>{% block title %}Social Network{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="{% static 'network/styles.css' %}" rel="stylesheet">
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            
+            <div class="row cabecera">
+
+                <div class="col-2">  
+                    <div id="divtitle">   
+                        <a href="#" id="title">Network</a>
+                    </div>
+                </div>
+
+                {% if user.is_authenticated %}
+
+                <div class="col-7"> 
+
+                </div>
+                
+                <div class="col-2"> 
+                    <a class="nav-link" href="#"><text id="username">{{ user.username }}</text></a>                  
+                </div>
+
+                <div class="col-1"> 
+                    <img src="/static/network/avatars/{{perfil.avatar}}" id="avatar">
+                </div>
+
+                {% else %}
+
+                <div class="col-8"> 
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+            <div class="row menu">
+
+                <div class="col-2">
+                    <a class="nav-link" href="{% url 'index' %}"> <i class="material-icons icono" title="all post">home</i> All Posts</a>
+                </div>
+
+                {% if user.is_authenticated %}
+
+                <div class="col-2">
+                    <a class="nav-link" href="#"> <i class="material-icons icono" title="following">people</i> Following</a>
+                </div>
+
+                <div class="col-6">
+                </div>
+
+                <div class="col-2">
+                    <a class="nav-link" href="{% url 'logout' %}"> <i class="material-icons icono" title="all post">logout</i> Log Out</a>
+                </div>
+
+                {% else %}
+
+                <div class="col-6">
+
+                </div>
+
+                <div class="col-2">
+                    <a class="nav-link" href="{% url 'login' %}"><i class="material-icons icono" title="login">login</i> Log In</a>
+                </div>
+
+                <div class="col-2">
+                    <a class="nav-link" href="{% url 'register' %}"><i class="material-icons icono" title="register">face</i> Register</a>
+                </div>
+
+                {% endif %}
+
+            </div>
+                       
+        </div>
+        
+        <div class="body">
+            {% block body %}
+
+            {% endblock %}
+        </div>
+    </body>
+</html>

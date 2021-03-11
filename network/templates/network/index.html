@@ -1,0 +1,60 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container cuerpo">
+
+    <div class="row">
+
+        <div class="col-4">
+           <div class="titleNewPost">New Post</div>
+        </div>
+
+        <div class="col-8">
+            <div class="titleNewPost">Posts</div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-4">
+
+            {% if user.is_authenticated %}
+
+            <div id="formulario">
+            <form id="compose-form">
+                <textarea id="compose-post"></textarea>
+                <input type="submit" class="btn btn-primary botonenviar" value="Send"/>
+            </form>
+            </div>
+
+            {% else %}
+
+            <div id="formulario">
+            <form id="compose-form">
+                <textarea disabled></textarea>
+                <input type="submit" class="btn btn-primary botonenviar" value="Send" disabled/>
+            </form>
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+        <div class="col-8" id="posts">
+            <div class="post">El trasero humano, llamado a menudo la sede de la sabiduría, es un buen  sitio para recibir la patada de la iluminación (Jan).</div>
+            <div class="post">La acción es lo único que tiene valor. Soñar que se juega al tenis no es  nada. Leer libros de tenis no es nada. Jugar al tenis es un gran placer. (Maurais). </div>
+            <div class="post">Algunas cosas están bajo nuestro control y otras no. Sólo tras haber hecho frente a esta regla fundamental y haber aprendido a distinguir entre lo que  podemos controlar y lo que no, serán posibles la tranquilidad interior y  la  eficacia exterior. (Epicteto). 
+            </div>
+        </div>
+
+    </div>
+
+</div>
+    
+{% endblock %}
