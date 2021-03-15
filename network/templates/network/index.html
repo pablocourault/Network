@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="principal">
 
         <div class="col-4">
 
@@ -30,6 +30,11 @@
                 <textarea id="compose-post"></textarea>
                 <input type="submit" class="btn btn-primary botonenviar" value="Send"/>
             </form>
+            <div id="successfully">posted successfully
+                <span class="material-icons">
+                    sentiment_satisfied_alt
+                    </span>
+            </div>
             </div>
 
             {% else %}
@@ -47,10 +52,34 @@
         </div>
 
         <div class="col-8" id="posts">
-            <div class="post">El trasero humano, llamado a menudo la sede de la sabiduría, es un buen  sitio para recibir la patada de la iluminación (Jan).</div>
-            <div class="post">La acción es lo único que tiene valor. Soñar que se juega al tenis no es  nada. Leer libros de tenis no es nada. Jugar al tenis es un gran placer. (Maurais). </div>
-            <div class="post">Algunas cosas están bajo nuestro control y otras no. Sólo tras haber hecho frente a esta regla fundamental y haber aprendido a distinguir entre lo que  podemos controlar y lo que no, serán posibles la tranquilidad interior y  la  eficacia exterior. (Epicteto). 
+            
+            {% for post in page_obj %}
+            {# Each "post" is a Posts model object. #}
+            <div class="post">
+                <div class="postdetails"><img src="/static/network/avatars/{{post.avatar}}" class="postavatar">{{post.usuario}}<text class="postdate">{{post.post_date}}</text></div>
+                <div class="postcontents">{{post.contents}}</div>    
             </div>
+
+            {% endfor %}
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+            
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+            
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+            
         </div>
 
     </div>

@@ -3,8 +3,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&display=swap');
 
+@keyframes hide {
+        0% {
+            opacity: 1;
+            height: 100%;
+            line-height: 100%;
+        }
+        75% {
+            opacity: 0;
+            height: 100%;
+            line-height: 100%;
+        }
+        100% {
+            opacity: 0;
+            height: 0px;
+            line-height: 0px;
+
+        }
+    }
+    
+
 body {padding: 24px;
-      background-color:#a6c6db;}
+      background-color:#a6c6db;
+      overflow-y: hidden;}
 
 a {font-family: 'Roboto', sans-serif;
    color: dimgrey}
@@ -57,13 +78,13 @@ textarea {min-height: 240px;
 
 
 #avatar {border: 1px solid #ddd;
-        padding: 4px;
-        margin-top: 6px;
-        border-radius: 4%;
-        max-width: 48px;
-        height: auto;
-        background-color: whitesmoke;
-        float:right}
+         padding: 4px;
+         margin-top: 6px;
+         border-radius: 4%;
+         max-width: 48px;
+         height: auto;
+         background-color: whitesmoke;
+         float:right}
 
 #username {font-family: 'Jura', sans-serif;
            font-size:  24px;
@@ -72,7 +93,30 @@ textarea {min-height: 240px;
            float: right}
 
 #formulario, #posts {padding-top: 16px;
-             padding-left: 16px;}
+                     padding-left: 16px;}
+
+ #posts {overflow-y:scroll;}  
+
+#compose-form {animation-name: hide;
+               animation-duration: 1s;
+               animation-fill-mode: forwards;
+               animation-play-state: paused;}
+             
+
+#successfully {display: none;
+               background-color: #A8E0C5;
+               font-family: 'Jura', sans-serif;
+               text-indent: 0px;
+               text-align: center;
+               color: #313131;
+               border-style: none;
+               border-width: 0px;
+               font-size:x-large;
+               font-weight:bold;       
+               padding: 24px;
+               width: 80%;
+               box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+               margin: 0 auto 16px;}
 
 .botonenviar {background-color: #D8D9F3;
               border-color: #a2a2a2;
@@ -83,8 +127,8 @@ textarea {min-height: 240px;
               left: 40%}
 
 
-
-.post { min-height: 64px;
+.post { height: auto;
+    min-width: 640px;
         max-width: 640px;
         border: 1px solid dimgrey;
         border-radius: 8px;
@@ -92,4 +136,23 @@ textarea {min-height: 240px;
         margin: 0 auto 16px;
         font-family: 'Roboto', sans-serif;
         font-size:small;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);}
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        display:inline-block}
+
+.postavatar {border: 1px solid #ddd;
+             padding: 2px;
+             margin: 2px;
+             border-radius: 4%;
+             max-width: 48px;
+             height: auto;
+             background-color: whitesmoke;
+             float:left}
+        
+.postdate {float:right}
+
+.postdetails {font-family: 'Jura', sans-serif;
+              font-size:  12px;
+              font-weight:700;}
+
+
+            

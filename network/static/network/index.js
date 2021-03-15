@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    var altura = window.innerHeight-240;
+
+    document.querySelector('#posts').style.height = altura+'px';
+
+
     document.querySelector('#compose-form').addEventListener('submit', sendpost);
 
 });
@@ -12,24 +17,27 @@ function sendpost() {
         method: 'POST',
         body: JSON.stringify({
         contenido: texto })})
-    /*    
-   .then(response => {
-      console.log('Response:', response)
-      return response.json();})*/
- 
       .then(response => {console.log(response.status);
         // save status to variable "estado", to use in the next "then"
         estado = response.status;
         if (response.status == 201)
            {
+            // start animation
             document.querySelector('#compose-post').value = "";
-           }
-        return response.json()})
+            document.querySelector('#compose-form').style.animationPlayState = 'running';
+            setTimeout(function(){document.querySelector('#compose-form').style.display = 'none'},500);
+            setTimeout(function(){document.querySelector('#compose-form').style.animationPlayState = 'paused'},500);
+            setTimeout(function(){document.querySelector('#successfully').style.display = 'block'},1000);
+            setTimeout(function(){document.querySelector('#successfully').style.display = 'none';
+                                  document.querySelector('#compose-form').style.display = 'block';},3000);
+            // end animation                  
+          }
 
-      
+        return response.json()})
+   
     .then(result => {console.log(result)});
 
-    event.preventDefault();
+    event.preventDefault(); 
     
     }
      

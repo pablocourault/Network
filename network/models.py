@@ -19,8 +19,9 @@ class Profile(models.Model):
         return f"{self.usuario} - Seguidores: {self.cantidad_seguidores} - Siguiendo: {self.cantidad_seguidos}"
 
 
-class Post(models.Model): # publicación
+class Posts(models.Model): # publicación
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, blank=False)
+    avatar = models.CharField(max_length=12, blank=False)
     contents = models.TextField(max_length=640, blank=False)
     post_date = models.DateField(blank=False, default=datetime.date.today)
     cantidad_megusta = models.IntegerField(default=0)

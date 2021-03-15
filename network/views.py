@@ -7,17 +7,23 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.paginator import Paginator
 
-from .models import User, Profile, Post
+from .models import User, Profile, Posts
 
 
 def index(request):
 
+    lista_posts = Posts.objects.all().order_by('-post_date')
+    paginator = Paginator(lista_posts, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     if request.user.is_authenticated:
         perfil = Profile.objects.get(usuario=request.user)
-        return render(request, "network/index.html",{"perfil": perfil})
+        return render(request, "network/index.html",{"perfil": perfil,'page_obj': page_obj})
     else:
-        return render(request, "network/index.html")
+        return render(request, "network/index.html",{'page_obj': page_obj})
 
 
 def login_view(request):
@@ -91,7 +97,9 @@ def publish(request):
     if len(contenido) == 0:
         return JsonResponse({"error": "empty post."}, status=400)
 
-    posteo = Post(usuario=request.user, contents=contenido)
+    avatar = 
+
+    posteo = Posts(usuario=request.user, contents=contenido)
     posteo.save()
 
     return JsonResponse({"message": "Post published successfully."}, status=201)
