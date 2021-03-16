@@ -23,111 +23,129 @@
     }
     
 
-body {background-color:indianred;
-      overflow-y: hidden;}
+body { background-color: #002A30;
+       overflow-y: hidden;
+       padding-top: 4px; }
 
-a {font-family: 'Roboto', sans-serif;
-   color: dimgrey}
+
+a { font-family: 'Roboto', sans-serif;
+    color: dimgrey; }
+
 a:hover { text-decoration:none; color:#ff8000;font-weight:600;text-transform:none; }
 
-textarea {min-height: 240px;
-          min-width: 320px;
-          border: 1px solid dimgrey;
-          border-radius: 8px;
-          padding: 8px;
-          font-family: 'Roboto', sans-serif;
-          font-size:larger;
-          resize: none;
-          box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4)}
 
-.cabecera {background: linear-gradient(to right,#00a1b8 0%,#23495c 100%);}
-
-.menu {background: #ededed;}
-
-.cuerpo {background:  #fafafa;
-        padding-bottom: 8px;}
-
-.icono {vertical-align:text-bottom;}
+textarea { min-height: 240px;
+           min-width: 320px;
+           border: 1px solid dimgrey;
+           border-radius: 8px;
+           padding: 8px;
+           font-family: 'Roboto', sans-serif;
+           font-size:larger;
+           resize: none;
+           box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); }
 
 
-#title {font-family: 'Fascinate', cursive;
-        font-size:  40px;
-        color: snow;
-        margin-left: 16px;}
+.cabecera { background: linear-gradient(to right,#00a1b8 0%,#23495c 100%); }
 
-.titleNewPost {font-family: 'Jura', sans-serif;
-               font-size:  24px;
-               font-weight:700;
-               color: dimgrey;
-               text-align: center;
-               vertical-align: text-bottom;
-               padding-top: 16px;}
 
-#titleLogin {font-family: 'Jura', sans-serif;
-             font-size:  24px;
-             font-weight:700;
-             color: dimgrey;
-             vertical-align: text-bottom;
-             text-align: center;
-             padding-top: 16px;
-             padding-bottom: 16px;}
+.menu { background: #ededed; }
+
+
+.cuerpo { background:  #fafafa;
+          padding-bottom: 8px; }
+
+
+.icono { vertical-align:text-bottom; }
+
+
+#title { font-family: 'Fascinate', cursive;
+         font-size:  40px;
+         color: snow;
+         margin-left: 16px; }
+
+
+.titleNewPost { font-family: 'Jura', sans-serif;
+                font-size:  24px;
+                font-weight:700;
+                color: dimgrey;
+                text-align: center;
+                vertical-align: text-bottom;
+                padding-top: 16px; }
+
+
+#titleLogin { font-family: 'Jura', sans-serif;
+              font-size:  24px;
+              font-weight:700;
+              color: dimgrey;
+              vertical-align: text-bottom;
+              text-align: center;
+              padding-top: 16px;
+              padding-bottom: 16px; }
 
 #formLogin { width: 40%;
-             margin: 0 auto;}
+             margin: 0 auto; }
 
 
-#avatar {border: 1px solid #ddd;
-         padding: 4px;
-         margin-top: 6px;
-         border-radius: 4%;
-         max-width: 48px;
-         height: auto;
-         background-color: whitesmoke;
-         float:right}
+#avatar { border: 1px solid #ddd;
+          padding: 4px;
+          margin-top: 6px;
+          border-radius: 4%;
+          max-width: 48px;
+          height: auto;
+          background-color: whitesmoke;
+          float:right; }
 
-#username {font-family: 'Jura', sans-serif;
-           font-size:  24px;
-           font-weight:700;
-           color: snow;
-           float: right}
+#username { font-family: 'Jura', sans-serif;
+            font-size:  24px;
+            font-weight:700;
+            color: snow;
+            float: right; }
 
-#formulario, #posts {padding-top: 16px;
-                     padding-left: 16px;}
 
-#posts {overflow-y:scroll;}  
+#formulario, #posts { padding-top: 16px;
+                      padding-left: 16px; }
 
-#compose-form {animation-name: hide;
-               animation-duration: 1s;
-               animation-fill-mode: forwards;
-               animation-play-state: paused;}
+#posts { overflow-y:scroll; }  
+
+
+#compose-form { animation-name: hide;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                animation-play-state: paused; }
              
 
-#successfully {display: none;
-               background-color: #A8E0C5;
-               font-family: 'Jura', sans-serif;
-               text-indent: 0px;
-               text-align: center;
-               color: #313131;
-               border-style: none;
-               border-width: 0px;
-               font-size:x-large;
-               font-weight:bold;       
-               padding: 24px;
-               width: 80%;
-               box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
-               margin: 0 auto 16px;}
+#successfully { display: none;
+                background-color: #A8E0C5;
+                font-family: 'Jura', sans-serif;
+                text-indent: 0px;
+                text-align: center;
+                color: #313131;
+                border-style: none;
+                border-width: 0px;
+                font-size:x-large;
+                font-weight:bold;       
+                padding: 24px;
+                width: 80%;
+                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+                margin: 0 auto 16px; }
 
-.botonenviar {background-color: #D8D9F3;
-              border-color: #a2a2a2;
-              color: #242424;
-              margin-top: 16px;
-              float: left;
-              position: relative;
-              left: 40%}
+
+.botonenviar { font-family: 'Jura', sans-serif;
+               font-size:  24px;
+               font-weight:700;
+               background-color: #B1B2E0;
+               border-color: #a2a2a2;
+               border-radius: 8px;
+               box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+               color: #242424;
+               margin-top: 24px;
+               float: left;
+               position: relative;
+               left: 36%; }
 
 
 .post { height: auto;
-    min-width: 640px;
+        min-width: 640px;
         max-width: 640px;
         border: 1px solid dimgrey;
         border-radius: 8px;
@@ -136,31 +154,37 @@ textarea {min-height: 240px;
         font-family: 'Roboto', sans-serif;
         font-size:small;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        display:inline-block}
+        display:inline-block; }
 
-.postavatar {border: 1px solid #ddd;
-             padding: 2px;
-             margin: 2px;
-             border-radius: 4%;
-             max-width: 48px;
-             height: auto;
-             background-color: whitesmoke;
-             float:left}
 
-.postname {font-family: 'Jura', sans-serif;
-           font-size: 16px;
-           font-weight: bolder;
-           padding-left: 8px;}
+.postavatar { border: 1px solid #ddd;
+              padding: 2px;
+              margin: 2px;
+              border-radius: 4%;
+              max-width: 48px;
+              height: auto;
+              background-color: whitesmoke;
+              float:left; }
 
-.postdate {float:right}
 
-.postdetails {font-family: 'Jura', sans-serif;
-              font-size:  12px;
-              font-weight:700;}
+.postname { font-family: 'Jura', sans-serif;
+            font-size: 16px;
+            font-weight: bolder;
+            padding-left: 8px; }
 
-.postcontents {display: -ms-inline-flexbox;
-               margin-left: 64px;
-               margin-top: 8px;}
+
+.postdate { float:right; }
+
+
+.postdetails { font-family: 'Jura', sans-serif;
+               font-size:  12px;
+               font-weight:700; }
+
+
+.postcontents { display: -ms-inline-flexbox;
+                margin-left: 64px;
+                margin-top: 8px; }
+
 
 
             
