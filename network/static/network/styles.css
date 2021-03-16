@@ -23,8 +23,7 @@
     }
     
 
-body {padding: 24px;
-      background-color:#a6c6db;
+body {background-color:indianred;
       overflow-y: hidden;}
 
 a {font-family: 'Roboto', sans-serif;
@@ -46,7 +45,7 @@ textarea {min-height: 240px;
 .menu {background: #ededed;}
 
 .cuerpo {background:  #fafafa;
-        padding-bottom: 24px;}
+        padding-bottom: 8px;}
 
 .icono {vertical-align:text-bottom;}
 
@@ -95,7 +94,7 @@ textarea {min-height: 240px;
 #formulario, #posts {padding-top: 16px;
                      padding-left: 16px;}
 
- #posts {overflow-y:scroll;}  
+#posts {overflow-y:scroll;}  
 
 #compose-form {animation-name: hide;
                animation-duration: 1s;
@@ -147,12 +146,21 @@ textarea {min-height: 240px;
              height: auto;
              background-color: whitesmoke;
              float:left}
-        
+
+.postname {font-family: 'Jura', sans-serif;
+           font-size: 16px;
+           font-weight: bolder;
+           padding-left: 8px;}
+
 .postdate {float:right}
 
 .postdetails {font-family: 'Jura', sans-serif;
               font-size:  12px;
               font-weight:700;}
+
+.postcontents {display: -ms-inline-flexbox;
+               margin-left: 64px;
+               margin-top: 8px;}
 
 
             

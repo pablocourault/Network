@@ -97,9 +97,9 @@ def publish(request):
     if len(contenido) == 0:
         return JsonResponse({"error": "empty post."}, status=400)
 
-    avatar = 
+    profileavatar = Profile.objects.get(usuario=request.user)
 
-    posteo = Posts(usuario=request.user, contents=contenido)
+    posteo = Posts(usuario=request.user, avatar=profileavatar.avatar, contents=contenido)
     posteo.save()
 
     return JsonResponse({"message": "Post published successfully."}, status=201)

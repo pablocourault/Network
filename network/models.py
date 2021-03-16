@@ -23,7 +23,7 @@ class Posts(models.Model): # publicación
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, blank=False)
     avatar = models.CharField(max_length=12, blank=False)
     contents = models.TextField(max_length=640, blank=False)
-    post_date = models.DateField(blank=False, default=datetime.date.today)
+    post_date = models.DateTimeField(blank=False, auto_now_add=True)
     cantidad_megusta = models.IntegerField(default=0)
     megusta = models.ManyToManyField(User, blank=True, related_name="likesto")
 

@@ -56,7 +56,7 @@
             {% for post in page_obj %}
             {# Each "post" is a Posts model object. #}
             <div class="post">
-                <div class="postdetails"><img src="/static/network/avatars/{{post.avatar}}" class="postavatar">{{post.usuario}}<text class="postdate">{{post.post_date}}</text></div>
+                <div class="postdetails"><img src="/static/network/avatars/{{post.avatar}}" class="postavatar"><text class="postname">{{post.usuario}}</text> <text class="postdate">{{post.post_date}}</text></div>
                 <div class="postcontents">{{post.contents}}</div>    
             </div>
 

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    var altura = window.innerHeight-240;
+    var altura = window.innerHeight-168;
 
     document.querySelector('#posts').style.height = altura+'px';
 
@@ -30,9 +30,12 @@ function sendpost() {
             setTimeout(function(){document.querySelector('#successfully').style.display = 'block'},1000);
             setTimeout(function(){document.querySelector('#successfully').style.display = 'none';
                                   document.querySelector('#compose-form').style.display = 'block';},3000);
-            // end animation                  
-          }
+            setTimeout(function(){location.reload();},3200);
 
+            // end animation  
+                         
+          }        
+           
         return response.json()})
    
     .then(result => {console.log(result)});
