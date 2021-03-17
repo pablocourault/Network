@@ -23,7 +23,7 @@
     }
     
 
-body { background-color: #002A30;
+body { background: linear-gradient(to top, RoyalBlue, #005D6A);
        overflow-y: hidden;
        padding-top: 4px; }
 
@@ -60,8 +60,12 @@ textarea { min-height: 240px;
 
 #title { font-family: 'Fascinate', cursive;
          font-size:  40px;
-         color: snow;
+         color: #01E0FF;
          margin-left: 16px; }
+
+#icontitle { vertical-align:text-bottom;
+             font-size: 56px;
+             color: #01E0FF;}
 
 
 .titleNewPost { font-family: 'Jura', sans-serif;
@@ -98,7 +102,7 @@ textarea { min-height: 240px;
 #username { font-family: 'Jura', sans-serif;
             font-size:  24px;
             font-weight:700;
-            color: snow;
+            color: #01E0FF;
             float: right; }
 
 
@@ -184,6 +188,19 @@ textarea { min-height: 240px;
 .postcontents { display: -ms-inline-flexbox;
                 margin-left: 64px;
                 margin-top: 8px; }
+
+.postlikes { display:inline-flex;
+             float:right; 
+             vertical-align:text-bottom; }
+
+.iconlikes { color: indianred; }
+
+.iconlikes:hover { font-weight:bolder;
+                   color: OrangeRed; }
+
+.numberlikes { color: indianred;
+               font-family: 'Roboto', sans-serif;
+               font-size:medium; }
 
 
 

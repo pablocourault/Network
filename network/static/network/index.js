@@ -43,5 +43,14 @@ function sendpost() {
     event.preventDefault(); 
     
     }
+
+function countlikes(postid) 
+
+      { fetch('/index/'+postid)
+              .then(response => response.json())
+    
+    
+    
+    }
      
     
