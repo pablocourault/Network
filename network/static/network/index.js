@@ -7,7 +7,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('#compose-form').addEventListener('submit', sendpost);
 
+    // selecciono todos los elementos de etiqueta <i> correspondiente a la clase identity y escucho el evento onclick
+    // se hace de esta manera y no poniendo el "onclick" en el html
+
+    document.querySelectorAll('i.identity').forEach(function(i) {
+      i.onclick = function() {
+          likescounter(i.dataset.identity);
+      }
+  });
+
 });
+
+
+function likescounter(postid) 
+
+    { route = '/' + postid;
+      fetch(route)
+            .then(response => console.log(response))
+            .then(data => {
+              // Log data to the console
+              console.log(data);
+          });          
+    }
+
 
 function sendpost() {
     
@@ -44,15 +66,8 @@ function sendpost() {
     
     }
 
-function likescounter(postid) 
 
-      { route = '/' + postid;
-        fetch(route)
-              .then(response => console.log(response))
-              //.then(console.log(data))
-    
-    
-    
-    }
+
+
      
     

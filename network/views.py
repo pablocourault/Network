@@ -111,7 +111,7 @@ def likescounter(request, postid):
 
     posteo = Posts.objects.get(id=postid)
 
-    if request.user in posteo.objects.get(megusta).all():
+    if request.user in posteo.megusta.all():
        posteo.cantidad_megusta -=1
        posteo.save()
     else:
@@ -120,4 +120,7 @@ def likescounter(request, postid):
 
     cantidad = posteo.cantidad_megusta
 
-    return JsonResponse({'data': cantidad})
+    data = {
+        'likes': cantidad}
+
+    return JsonResponse(data)
