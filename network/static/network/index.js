@@ -44,10 +44,10 @@ function sendpost() {
     
     }
 
-function countlikes(postid) 
+function likescounter(postid) 
 
-      { fetch('/index/'+postid)
-              .then(response => response.json())
+      { fetch('/'+postid)
+              .then(response => console.log(response))
     
     
     

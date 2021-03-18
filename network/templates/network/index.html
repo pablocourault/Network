@@ -59,7 +59,7 @@
                 <div class="postdetails"><img src="/static/network/avatars/{{post.avatar}}" class="postavatar"><text class="postname">{{post.usuario}}</text> <text class="postdate">{{post.post_date}}</text></div>
                 <div class="postcontents">{{post.contents}}</div>
                 {% if user.is_authenticated %}
-                <div class="postlikes"><i class="material-icons iconlikes" onclick="countlikes('{{post.id}}')" style="cursor: pointer">favorite_border</i><text class="numberlikes">&nbsp;{{post.cantidad_megusta}}</text></div>   
+                <div class="postlikes"><i class="material-icons iconlikes" onclick="likescounter('{{post.id}}')" style="cursor: pointer">favorite_border</i><text class="numberlikes">&nbsp;{{post.cantidad_megusta}}</text></div>   
                 {% else %}
                 <div class="postlikes"><i class="material-icons iconlikes">favorite_border</i><text class="numberlikes">{{post.cantidad_megusta}}</text></div> 
                 {% endif %}

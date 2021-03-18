@@ -103,3 +103,21 @@ def publish(request):
     posteo.save()
 
     return JsonResponse({"message": "Post published successfully."}, status=201)
+
+@csrf_exempt
+@login_required
+def likescounter(request,postid):
+
+    posteo = Post.objects.get(id=postid)
+
+    if request.user in posteo.megusta:
+        posteo.cantidad_megusta -=1
+        posteo.save()
+    else:
+        posteo.cantidad_megusta  +=1
+        posteo.save()
+
+    cantidad = posteo.cantidad_megusta
+    data = {'cantidad': 'cantidad' }
+
+    return JsonResponse(data)
