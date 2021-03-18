@@ -46,8 +46,10 @@ function sendpost() {
 
 function likescounter(postid) 
 
-      { fetch('/'+postid)
+      { route = '/' + postid;
+        fetch(route)
               .then(response => console.log(response))
+              //.then(console.log(data))
     
     
     

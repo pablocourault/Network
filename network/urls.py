@@ -10,4 +10,4 @@ urlpatterns = [
     path("register", views.register, name="register"),
 # API Routes
     path("post", views.publish, name="posteo"),
-    path("/<int:post_id>", views.likescounter, name="likescounter")]
+    path("<int:postid>", views.likescounter, name="likescounter")]
