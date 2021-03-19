@@ -125,7 +125,20 @@ def likescounter(request, postid):
     return JsonResponse({'likes': posteo.cantidad_megusta, 'megusta': booleanvalue})
 
 
-def profile(request):
+def profile(request, profile):
+
+    postowner = User.filter(id=profile)
+    lista_posts = Posts.objects.filter(usuario=postowner).order_by('-post_date')
+    paginator = Paginator(lista_posts, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    if request.user.is_authenticated:
+        perfil = Profile.objects.get(usuario=request.user)
+        return render(request, "network/index.html",{"perfil": perfil,'page_obj': page_obj})
+    else:
+        return render(request, "network/index.html",{'page_obj': page_obj})
+
     pass
     
 
