@@ -23,10 +23,22 @@ function likescounter(postid)
 
     { route = '/' + postid;
       fetch(route)
-            .then(response => console.log(response))
-            .then(data => {
-              // Log data to the console
-              console.log(data);
+            .then(response => response.json()) // OJO si no pongo response.json() "data" queda sin definir
+            .then(data  => {
+              
+              cantidad= data.likes;
+              megusta = data.megusta;
+
+              iconid = '#icon' + postid;
+
+              if (megusta === 'True') 
+                 {document.querySelector(iconid).innerHTML = 'favorite'}
+              else
+                 {document.querySelector(iconid).innerHTML = 'favorite_border'}
+
+              textid = '#text' + postid;
+              document.querySelector(textid).innerHTML = cantidad;
+              
           });          
     }
 

@@ -56,10 +56,21 @@
             {% for post in page_obj %}
             {# Each "post" is a Posts model object. #}
             <div class="post">
-                <div class="postdetails"><img src="/static/network/avatars/{{post.avatar}}" class="postavatar"><text class="postname">{{post.usuario}}</text> <text class="postdate">{{post.post_date}}</text></div>
-                <div class="postcontents">{{post.contents}}</div>
+                <div class="postdetails"> <a href="{% url 'profile' post.usuario %}"> <img src="/static/network/avatars/{{post.avatar}}" class="postavatar"> <text class="postname">{{post.usuario}}</text> </a> <text class="postdate">{{post.post_date}}</text></div>
+                <div class="postcontents">{{post.contents}}</div> 
+
                 {% if user.is_authenticated %}
-                <div class="postlikes"><i class="material-icons iconlikes identity" data-identity='{{post.id}}' style="cursor: pointer">favorite_border</i><text class="numberlikes">&nbsp;{{post.cantidad_megusta}}</text></div>   
+                <div class="postlikes">
+
+                <i class="material-icons iconlikes identity" data-identity='{{post.id}}' style="cursor: pointer" id='icon{{post.id}}'>
+                    {% if user in post.megusta.all %}
+                        favorite
+                    {% else %}
+                        favorite_border
+                    {% endif %}
+                </i>
+                
+                <text class="numberlikes" id='text{{post.id}}'>&nbsp;{{post.cantidad_megusta}}</text></div>   
                 {% else %}
                 <div class="postlikes"><i class="material-icons iconlikes">favorite_border</i><text class="numberlikes">{{post.cantidad_megusta}}</text></div> 
                 {% endif %}

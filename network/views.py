@@ -113,14 +113,20 @@ def likescounter(request, postid):
 
     if request.user in posteo.megusta.all():
        posteo.cantidad_megusta -=1
+       posteo.megusta.remove(request.user)
        posteo.save()
+       booleanvalue = 'False' 
     else:
         posteo.cantidad_megusta  +=1
+        posteo.megusta.add(request.user)
         posteo.save()
+        booleanvalue = 'True'
 
-    cantidad = posteo.cantidad_megusta
+    return JsonResponse({'likes': posteo.cantidad_megusta, 'megusta': booleanvalue})
 
-    data = {
-        'likes': cantidad}
 
-    return JsonResponse(data)
+def profile(request):
+    pass
+    
+
+
