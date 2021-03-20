@@ -11,4 +11,4 @@ urlpatterns = [
 # API Routes
     path("post", views.publish, name="posteo"),
     path("<int:postid>", views.likescounter, name="likescounter"),
-    path("profile/<str:usuario>", views.profile, name="profile")]
+    path("profile/<str:nombre>", views.profile, name="profile")]

@@ -203,5 +203,36 @@ textarea { min-height: 240px;
                font-size:medium; }
 
 
+#profileavatar { border: 1px solid #ddd;
+                 padding: 2px;
+                 margin: 16px;
+                 border-radius: 4%;
+                 max-width: 48px;
+                 min-height: 240px;
+                 min-width: 320px;
+                 height: auto;
+                 background-color: whitesmoke;
+                 float:left;
+                 box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); }
+
+#divprofileinfo {display: flex;
+                 padding: 8px;
+                 justify-content: center; }
+
+
+.profileinfo { font-family: 'Jura', sans-serif;
+               font-size: 20px;
+               font-weight: bolder;
+               color: dimgrey;
+               padding: 8px }
+
+#cantidadseguidores {color:orangered;
+                     font-size: 24px;}
+
+#cantidadseguidos {color:limegreen;
+                   font-size: 24px; }
+
+
+
 
             
