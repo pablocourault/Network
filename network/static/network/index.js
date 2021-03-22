@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     var altura = window.innerHeight-168;
-
+    
     document.querySelector('#posts').style.height = altura+'px';
-
 
     document.querySelector('#compose-form').addEventListener('submit', sendpost);
 
@@ -16,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 
-});
 
+});
 
 function likescounter(postid) 
 

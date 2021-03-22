@@ -60,8 +60,15 @@
                 <div class="postcontents">{{post.contents}}</div> 
 
                 {% if user.is_authenticated %}
-                <div class="postlikes">
 
+                <div> 
+                    {% if post.usuario == request.user %}
+                    <br><a class="enlaceedit">Edit</a>
+                    {% endif %} 
+                </div>
+              
+                <div class="postlikes">
+                
                 <i class="material-icons iconlikes identity" data-identity='{{post.id}}' style="cursor: pointer" id='icon{{post.id}}'>
                     {% if user in post.megusta.all %}
                         favorite
