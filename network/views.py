@@ -149,7 +149,9 @@ def profile(request, nombre):
                                                        'profilename': profilename,
                                                        'accion': accion })
     else:
-        return render(request, "network/profile.html",{'page_obj': page_obj, 'profile': profile, 'profilename': profilename})
+        return render(request, "network/profile.html",{'page_obj': page_obj, 
+                                                       'profile': profile,
+                                                       'profilename': profilename})
 
 
 @login_required
@@ -208,7 +210,9 @@ def following(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, "network/index.html",{"perfil": perfil,'page_obj': page_obj})
+    return render(request, "network/index.html",{'perfil': perfil,
+                                                 'page_obj': page_obj,
+                                                 'following': True})
 
 
 

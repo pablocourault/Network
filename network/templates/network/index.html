@@ -15,7 +15,12 @@
         </div>
 
         <div class="col-8">
+            {% if following %}
+            <div class="titleNewPost">Posts by users followed </div>
+            {% else %}
             <div class="titleNewPost">Posts</div>
+            {% endif %}
+
         </div>
     </div>
 
@@ -57,13 +62,13 @@
             {# Each "post" is a Posts model object. #}
             <div class="post">
                 <div class="postdetails"> <a href="{% url 'profile' post.usuario %}"> <img src="/static/network/avatars/{{post.avatar}}" class="postavatar"> <text class="postname">{{post.usuario}}</text> </a> <text class="postdate">{{post.post_date}}</text></div>
-                <div class="postcontents">{{post.contents}}</div> 
+                <div class="postcontents" id='contents{{post.id}}'>{{post.contents}}</div> 
 
                 {% if user.is_authenticated %}
 
                 <div> 
                     {% if post.usuario == request.user %}
-                    <br><a class="enlaceedit">Edit</a>
+                    <br><a class="enlaceedit" data-postid='{{post.id}}'>Edit</a>
                     {% endif %} 
                 </div>
               

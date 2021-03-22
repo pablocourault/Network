@@ -11,9 +11,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('i.identity').forEach(function(i) {
       i.onclick = function() {
-          likescounter(i.dataset.identity);
-      }
-  });
+          likescounter(i.dataset.identity); } });
+
+    document.querySelectorAll('a.enlaceedit').forEach(function(a) {
+
+            if (a.innerHTML == "Edit")
+              {
+              a.onclick = function() 
+                {
+
+                  idcontenido = 'contents' + a.dataset.postid;
+                  document.querySelector('#'+idcontenido).contentEditable = "true";
+                  document.querySelector('#'+idcontenido).style.background = "#ededed";
+                  document.querySelector('#'+idcontenido).style.border = "1px solid";
+                  document.querySelector('#'+idcontenido).style.padding = "8px";
+                  document.querySelector('#'+idcontenido).style.borderRadius = "4px";
+                  document.querySelector('#'+idcontenido).style.fontSize = "large";
+                  document.querySelector('#'+idcontenido).focus();
+                  a.innerHTML = "Save";
+                }
+              }
+
+            if (a.innerHTML == "Save")
+                {
+                a.onclick = function() {
+                                      alert(document.querySelector('#'+idcontenido).innerHTML);
+                  }
+                }
+
+                
+            } );
 
 
 });

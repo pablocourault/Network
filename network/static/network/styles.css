@@ -245,6 +245,9 @@ textarea { min-height: 240px;
                 margin-top: 8px;
                 height: max-content; }   
 
+#buttonfollow:hover { color: whitesmoke;
+                      background-color: royalblue;}
+
 a.enlaceedit {float: left;
              font-family: 'Jura', sans-serif;
              font-size: 20px;
