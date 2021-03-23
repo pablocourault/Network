@@ -1,0 +1,98 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container cuerpo">
+
+    <div class="row">
+
+        <div class="col-4">
+           <div class="titleNewPost">Profile</div>
+        </div>
+
+        <div class="col-8">
+            <div class="titleNewPost">Posts</div>
+        </div>
+    </div>
+
+    <div class="row" id="principal">
+
+        <div class="col-4">
+
+            {% if user.is_authenticated %}
+
+            <div id="profile">
+            
+            </div>
+
+            {% else %}
+
+            <div id="profile">
+            
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+        <div class="col-8" id="posts">
+            
+            {% for post in page_obj %}
+            {# Each "post" is a Posts model object. #}
+            <div class="post">
+                <div class="postdetails"> <a href="{% url 'profile' post.usuario %}"> <img src="/static/network/avatars/{{post.avatar}}" class="postavatar"> <text class="postname">{{post.usuario}}</text> </a> <text class="postdate">{{post.post_date}}</text></div>
+                <div class="postcontents">{{post.contents}}</div> 
+
+                {% if user.is_authenticated %}
+                <div class="postlikes">
+
+                <i class="material-icons iconlikes identity" data-identity='{{post.id}}' style="cursor: pointer" id='icon{{post.id}}'>
+                    {% if user in post.megusta.all %}
+                        favorite
+                    {% else %}
+                        favorite_border
+                    {% endif %}
+                </i>
+                
+                <text class="numberlikes" id='text{{post.id}}'>&nbsp;{{post.cantidad_megusta}}</text></div>   
+                {% else %}
+                <div class="postlikes"><i class="material-icons iconlikes">favorite_border</i><text class="numberlikes">{{post.cantidad_megusta}}</text></div> 
+                {% endif %}
+            </div>
+
+            {% endfor %}
+
+            <nav aria-label="...">
+
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item"> <a class="page-link" href="?page=1">&laquo; first</a></li>
+                    <li class="page-item"> <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a> </li>
+                    {% endif %}
+            
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                    </li>
+            
+                    {% if page_obj.has_next %}
+                    <li class="page-item"> <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a> </li>
+                    <li class="page-item"> <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> </li>
+                    {% endif %}
+                </ul>
+
+            </nav>
+          
+        </div>
+
+    </div>
+
+</div>
+    
+{% endblock %}
