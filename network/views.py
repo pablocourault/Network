@@ -214,5 +214,21 @@ def following(request):
                                                  'page_obj': page_obj,
                                                  'following': True})
 
+@csrf_exempt
+@login_required
+def edit(request):
+    if request.method == "POST":
+         data = json.loads(request.body)
+         idpostaactualizar = data.get("postupdated")
+         contenidoaactualizar = data.get("contentupdated")
+         posteo = Posts.objects.get(id=idpostaactualizar)
 
+         if posteo.usuario == request.user:
+             posteo.contents = contenidoaactualizar
+             posteo.save()
+             return JsonResponse({'contenidoaactualizar': contenidoaactualizar}, status=201)
+         else:
+             return JsonResponse({'error': 'el usuario no tiene autorización'}, status=400)
+    else:
+        return JsonResponse({'error': 'POST request required.'}, status=400)
 
