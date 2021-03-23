@@ -125,21 +125,110 @@ def likescounter(request, postid):
     return JsonResponse({'likes': posteo.cantidad_megusta, 'megusta': booleanvalue})
 
 
-def profile(request, profile):
+def profile(request, nombre):
 
-    postowner = User.filter(id=profile)
-    lista_posts = Posts.objects.filter(usuario=postowner).order_by('-post_date')
+    usuarioprf = User.objects.get(username=nombre)
+
+    profile = Profile.objects.get(usuario=usuarioprf)
+    profilename = nombre
+
+    lista_posts = Posts.objects.filter(usuario=usuarioprf.id).order_by('-post_date')
     paginator = Paginator(lista_posts, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
+    if request.user in profile.seguidores.all():
+        accion = 'Unfollow'
+    else:
+        accion = 'Follow'
+
     if request.user.is_authenticated:
         perfil = Profile.objects.get(usuario=request.user)
-        return render(request, "network/index.html",{"perfil": perfil,'page_obj': page_obj})
+        return render(request, "network/profile.html",{"perfil": perfil,'page_obj': page_obj,
+                                                       'profile': profile,
+                                                       'profilename': profilename,
+                                                       'accion': accion })
     else:
-        return render(request, "network/index.html",{'page_obj': page_obj})
+        return render(request, "network/profile.html",{'page_obj': page_obj, 
+                                                       'profile': profile,
+                                                       'profilename': profilename})
 
-    pass
-    
 
+@login_required
+def follows(request, accion, usertofollow):
+
+    if accion == 'Follow':
+
+        # busco el user para después poder buscar el profile
+        usuariotofollow = User.objects.get(username=usertofollow)
+        profiletofollow = Profile.objects.get(usuario=usuariotofollow)
+
+        profilerequest = Profile.objects.get(usuario=request.user)
+
+        profilerequest.cantidad_seguidos +=1
+        profilerequest.siguiendo.add(usuariotofollow)
+        profilerequest.save()
+
+        profiletofollow.cantidad_seguidores +=1
+        profiletofollow.seguidores.add(request.user)
+        profiletofollow.save()
+
+        seguidores = profiletofollow.cantidad_seguidores
+        action = 'Unfollow'
+
+    if accion == 'Unfollow':
+
+        # busco el user para después poder buscar el profile
+        usuariotounfollow = User.objects.get(username=usertofollow)
+        profiletounfollow = Profile.objects.get(usuario=usuariotounfollow)
+
+        profilerequest = Profile.objects.get(usuario=request.user)
+
+        profilerequest.cantidad_seguidos -=1
+        profilerequest.siguiendo.remove(usuariotounfollow)
+        profilerequest.save()
+
+        profiletounfollow.cantidad_seguidores -=1
+        profiletounfollow.seguidores.remove(request.user)
+        profiletounfollow.save()
+
+        seguidores = profiletounfollow.cantidad_seguidores
+        action = 'Follow'
+
+    return JsonResponse({'seguidores': seguidores, 'action': action})
+
+
+@login_required
+def following(request):
+
+    perfil = Profile.objects.get(usuario=request.user)
+    following_users = perfil.siguiendo.all()
+
+    lista_posts = Posts.objects.all().order_by('-post_date').filter(usuario__in=following_users)
+
+    paginator = Paginator(lista_posts, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, "network/index.html",{'perfil': perfil,
+                                                 'page_obj': page_obj,
+                                                 'following': True})
+
+@csrf_exempt
+@login_required
+def edit(request):
+    if request.method == "POST":
+         data = json.loads(request.body)
+         idpostaactualizar = data.get("postupdated")
+         contenidoaactualizar = data.get("contentupdated")
+         posteo = Posts.objects.get(id=idpostaactualizar)
+
+         if posteo.usuario == request.user:
+             posteo.contents = contenidoaactualizar
+             posteo.save()
+             return JsonResponse({'contenidoaactualizar': contenidoaactualizar}, status=201)
+         else:
+             return JsonResponse({'error': 'el usuario no tiene autorización'}, status=400)
+    else:
+        return JsonResponse({'error': 'POST request required.'}, status=400)
 

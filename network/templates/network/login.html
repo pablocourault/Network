@@ -1,8 +1,13 @@
 {% extends "network/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'network/login.js' %}"></script>
+{% endblock %}
 
 {% block body %}
 
-<div class="container cuerpo">
+<div class="container cuerpo" id="loginbody">
 
     <div  id="titleLogin">Login</div>
 

@@ -24,7 +24,6 @@
     
 
 body { background: linear-gradient(to top, RoyalBlue, #005D6A);
-       overflow-y: hidden;
        padding-top: 4px; }
 
 
@@ -202,6 +201,76 @@ textarea { min-height: 240px;
                font-family: 'Roboto', sans-serif;
                font-size:medium; }
 
+#divprofile { display:grid;
+              grid-row-gap: 2px;
+              justify-content: center; }
 
+#profileavatar { border: 1px solid #ddd;
+                 padding: 2px;
+                 margin: 16px;
+                 border-radius: 4%;
+                 max-width: 240px;
+                 min-height: 240px;
+                 min-width: 240px;
+                 background-color: whitesmoke;
+                 box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); }
+
+
+#divprofileinfo { display: flex; }
+
+.profileinfo { font-family: 'Jura', sans-serif;
+               font-size: 20px;
+               font-weight: bolder;
+               color: dimgrey;
+               padding: 8px; }
+
+#cantidadseguidores { color:orangered;
+                      font-size: 24px; }
+
+#cantidadseguidos { color:limegreen;
+                    font-size: 24px; }
+
+#divbuttonfollow { text-align: center; }
+                   
+#buttonfollow { font-family: 'Jura', sans-serif;
+                font-size: 20px;
+                font-weight:700;
+                background-color: #B1B2E0;
+                border-color: #a2a2a2;
+                border-radius: 8px;
+                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+                color: #242424;
+                width: 128px;
+                padding: 4px;
+                margin-top: 8px;
+                height: max-content; }   
+
+
+#buttonfollow:hover { color: whitesmoke;
+                      background-color: royalblue;}
+
+
+.editcontents { display: none;
+                visibility:hidden;
+                background: #ededed;
+                font-family: 'Jura', sans-serif;
+                font-size: large;
+                border: "1px solid";
+                border-radius: 4px;
+                padding: 8px;}
+
+
+a.enlaceedit {float: left;
+              font-family: 'Jura', sans-serif;
+              font-size: 20px;
+              font-weight:bold;
+              color: indianred; }
+
+
+a.enlaceedit:hover { text-decoration:none; 
+                     color:#ff8000;
+                     font-weight:bolder;
+                     text-transform:none;
+                     cursor: pointer }
 
             
