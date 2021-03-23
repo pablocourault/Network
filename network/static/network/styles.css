@@ -245,14 +245,27 @@ textarea { min-height: 240px;
                 margin-top: 8px;
                 height: max-content; }   
 
+
 #buttonfollow:hover { color: whitesmoke;
                       background-color: royalblue;}
 
+
+.editcontents { display: none;
+                visibility:hidden;
+                background: #ededed;
+                font-family: 'Jura', sans-serif;
+                font-size: large;
+                border: "1px solid";
+                border-radius: 4px;
+                padding: 8px;}
+
+
 a.enlaceedit {float: left;
-             font-family: 'Jura', sans-serif;
-             font-size: 20px;
-             font-weight:bold;
-             color: indianred; }
+              font-family: 'Jura', sans-serif;
+              font-size: 20px;
+              font-weight:bold;
+              color: indianred; }
+
 
 a.enlaceedit:hover { text-decoration:none; 
                      color:#ff8000;
