@@ -77,6 +77,8 @@
 
                 {% if user.is_authenticated %}
 
+                <textarea class="editcontents" id='editcontents{{post.id}}'>{{post.contents}}</textarea>
+
                 <div> 
                     {% if post.usuario == request.user %}
                     <br><a class="enlaceedit">Edit</a>

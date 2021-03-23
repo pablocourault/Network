@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    var altura = window.innerHeight-168;
+    var altura = window.innerHeight-184;
     
     document.querySelector('#posts').style.height = altura+'px';
 
@@ -29,16 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             else
                 {
-                 textoactualizado = document.querySelector('#'+ideditcontents).innerHTML;
-                 document.querySelector('#'+idcontenido).style.visibility = "visible";
-                 document.querySelector('#'+idcontenido).style.display = "block";
+                 textoactualizado = document.querySelector('#'+ideditcontents).value;
                  document.querySelector('#'+ideditcontents).style.visibility = "hidden";
                  document.querySelector('#'+ideditcontents).style.display = "none";
+                 document.querySelector('#'+idcontenido).style.visibility = "visible";
+                 document.querySelector('#'+idcontenido).style.display = "block";
                  a.innerHTML = "Edit";
 
-                 alert(textoactualizado);
-
-                 if ((document.querySelector('#'+ideditcontents).innerHTML.length) < 5)
+                 if (textoactualizado.length < 5)
                 
                     {
                      alert("Error: empty post");
@@ -48,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         fetch('/edit', {
                                         method: 'POST',
                                         body: JSON.stringify({postupdated: a.dataset.postid,
-                                                              contentupdated: document.querySelector('#'+ideditcontents).innerHTML})
+                                                              contentupdated: textoactualizado})
                                         })
                         // en las siguientes lineas veo el status y paso el json al mismo tiempo
                         // ver también función enviar correo del proyecto 3 Mail
