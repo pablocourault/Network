@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    var altura = window.innerHeight-168;
+    var altura = window.innerHeight-194;
     
     document.querySelector('#posts').style.height = altura+'px';
 
@@ -19,24 +19,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (a.innerHTML == "Edit")
               {
                   idcontenido = 'contents' + a.dataset.postid;
-                  document.querySelector('#'+idcontenido).contentEditable = "true";
-                  document.querySelector('#'+idcontenido).style.background = "#ededed";
-                  document.querySelector('#'+idcontenido).style.border = "1px solid";
-                  document.querySelector('#'+idcontenido).style.padding = "8px";
-                  document.querySelector('#'+idcontenido).style.borderRadius = "4px";
-                  document.querySelector('#'+idcontenido).style.fontSize = "large";
-                  document.querySelector('#'+idcontenido).focus();
+                  ideditcontents = 'editcontents' + a.dataset.postid;
+                  document.querySelector('#'+idcontenido).style.visibility = "hidden";
+                  document.querySelector('#'+idcontenido).style.display = "none";
+                  document.querySelector('#'+ideditcontents).style.visibility = "visible";
+                  document.querySelector('#'+ideditcontents).style.display = "block";
+                  document.querySelector('#'+ideditcontents).focus();
                   a.innerHTML = "Save";
                 }
             else
                 {
-                 document.querySelector('#'+idcontenido).contentEditable = "false";
-                 document.querySelector('#'+idcontenido).style.background = "#fafafa";
-                 document.querySelector('#'+idcontenido).style.border = "none";
-                 document.querySelector('#'+idcontenido).style.fontSize = "small";
+                 textoactualizado = document.querySelector('#'+ideditcontents).value;
+                 document.querySelector('#'+ideditcontents).style.visibility = "hidden";
+                 document.querySelector('#'+ideditcontents).style.display = "none";
+                 document.querySelector('#'+idcontenido).style.visibility = "visible";
+                 document.querySelector('#'+idcontenido).style.display = "block";
                  a.innerHTML = "Edit";
 
-                 if ((document.querySelector('#'+idcontenido).innerHTML.length) < 5)
+                 if (textoactualizado.length < 5)
                 
                     {
                      alert("Error: empty post");
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         fetch('/edit', {
                                         method: 'POST',
                                         body: JSON.stringify({postupdated: a.dataset.postid,
-                                                              contentupdated: document.querySelector('#'+idcontenido).innerHTML})
+                                                              contentupdated: textoactualizado})
                                         })
                         // en las siguientes lineas veo el status y paso el json al mismo tiempo
                         // ver también función enviar correo del proyecto 3 Mail

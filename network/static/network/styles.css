@@ -1,7 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700;800;900&display=swap');
+
 
 @keyframes hide {
         0% {
@@ -23,8 +24,7 @@
     }
     
 
-body { background: linear-gradient(to top, RoyalBlue, #005D6A);
-       padding-top: 4px; }
+body { background: linear-gradient(to top, #23495c, black); }
 
 
 a { font-family: 'Roboto', sans-serif;
@@ -35,22 +35,26 @@ a:hover { text-decoration:none; color:#ff8000;font-weight:600;text-transform:non
 
 textarea { min-height: 240px;
            min-width: 320px;
-           border: 1px solid dimgrey;
-           border-radius: 8px;
-           padding: 8px;
+           border: 1px solid whitesmoke;
+           border-radius: 4px; 
+           background: #edeef7;
+           padding: 32px;
            font-family: 'Roboto', sans-serif;
            font-size:larger;
+           color: dimgray;
            resize: none;
            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); }
 
 
-.cabecera { background: linear-gradient(to right,#00a1b8 0%,#23495c 100%); }
+.cabecera { background: linear-gradient(to right,#7868e6 0%,#b8b5ff 100%); 
+            height: 80px;
+            padding-top: 4px;}
 
 
 .menu { background: #ededed; }
 
 
-.cuerpo { background:  #fafafa;
+.cuerpo { background: linear-gradient(to right,#7868e6 0%,#b8b5ff 100%);
           padding-bottom: 8px; }
 
 
@@ -58,35 +62,42 @@ textarea { min-height: 240px;
 
 
 #title { font-family: 'Fascinate', cursive;
-         font-size:  40px;
-         color: #01E0FF;
+         font-size:  48px;
+         /*color: #01E0FF; */
+         color: #e4fbff;
          margin-left: 16px; }
 
 #icontitle { vertical-align:text-bottom;
              font-size: 56px;
-             color: #01E0FF;}
+             color: #e4fbff; }
 
 
 .titleNewPost { font-family: 'Jura', sans-serif;
-                font-size:  24px;
-                font-weight:700;
-                color: dimgrey;
+                font-size:  32px;
+                font-weight: bolder;
+                color: #e4fbff;
                 text-align: center;
                 vertical-align: text-bottom;
-                padding-top: 16px; }
+                padding-top: 16px;
+                padding-left: 24px; }
 
 
-#titleLogin { font-family: 'Jura', sans-serif;
-              font-size:  24px;
-              font-weight:700;
-              color: dimgrey;
-              vertical-align: text-bottom;
-              text-align: center;
-              padding-top: 16px;
-              padding-bottom: 16px; }
+#titleLogin, #titleRegister { font-family: 'Jura', sans-serif;
+                              font-size:  32px;
+                              font-weight:700;
+                              color: #e4fbff;
+                              vertical-align: text-bottom;
+                              text-align: center;
+                              padding-top: 16px;
+                              padding-bottom: 16px; }
+
+    
 
 #formLogin { width: 40%;
              margin: 0 auto; }
+
+ #formRegister { width: 40%;
+                 margin: 0 auto; }
 
 
 #avatar { border: 1px solid #ddd;
@@ -99,14 +110,16 @@ textarea { min-height: 240px;
           float:right; }
 
 #username { font-family: 'Jura', sans-serif;
-            font-size:  24px;
-            font-weight:700;
-            color: #01E0FF;
+            font-size:  32px;
+            font-weight: 900;
+            color: #e4fbff;
             float: right; }
 
 
 #formulario, #posts { padding-top: 16px;
-                      padding-left: 16px; }
+                      text-align: center;
+                      justify-content: center; }
+
 
 #posts { overflow-y:scroll; }  
 
@@ -119,6 +132,7 @@ textarea { min-height: 240px;
 
 #successfully { display: none;
                 background-color: #A8E0C5;
+                border-radius: 16px;
                 font-family: 'Jura', sans-serif;
                 text-indent: 0px;
                 text-align: center;
@@ -127,40 +141,39 @@ textarea { min-height: 240px;
                 border-width: 0px;
                 font-size:x-large;
                 font-weight:bold;       
-                padding: 24px;
+                padding: 48px;
                 width: 80%;
+                min-height: 240px;
                 box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
                 margin: 0 auto 16px; }
+
+#successfullyicon {font-size:xx-large;}
 
 
 .botonenviar { font-family: 'Jura', sans-serif;
                font-size:  24px;
-               font-weight:700;
-               background-color: #B1B2E0;
-               border-color: #a2a2a2;
                border-radius: 8px;
                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
-               color: #242424;
-               margin-top: 24px;
-               float: left;
-               position: relative;
-               left: 36%; }
+               color: #e4fbff;
+               margin-top: 32px; }
 
 
 .post { height: auto;
         min-width: 640px;
         max-width: 640px;
-        border: 1px solid dimgrey;
-        border-radius: 8px;
+        background: #edeef7;
+        border: 1px solid #e4fbff;
+        border-radius: 4px;
         padding: 8px;
         margin: 0 auto 16px;
         font-family: 'Roboto', sans-serif;
         font-size:small;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        display:inline-block; }
+        display:inline-block;
+        justify-content: left; }
 
 
-.postavatar { border: 1px solid #ddd;
+.postavatar { border: 1px solid whitesmoke;
               padding: 2px;
               margin: 2px;
               border-radius: 4%;
@@ -173,40 +186,46 @@ textarea { min-height: 240px;
 .postname { font-family: 'Jura', sans-serif;
             font-size: 16px;
             font-weight: bolder;
-            padding-left: 8px; }
+            float: left; }
 
 
 .postdate { float:right; }
 
 
 .postdetails { font-family: 'Jura', sans-serif;
-               font-size:  12px;
+               font-size: 12px;
                font-weight:700; }
 
 
-.postcontents { display: -ms-inline-flexbox;
-                margin-left: 64px;
-                margin-top: 8px; }
+.postcontents { display:block;
+                margin-top: 8px;
+                padding: 4px; }
+
 
 .postlikes { display:inline-flex;
              float:right; 
              vertical-align:text-bottom; }
 
+
 .iconlikes { color: indianred; }
+
 
 .iconlikes:hover { font-weight:bolder;
                    color: OrangeRed; }
+
 
 .numberlikes { color: indianred;
                font-family: 'Roboto', sans-serif;
                font-size:medium; }
 
+
 #divprofile { display:grid;
               grid-row-gap: 2px;
               justify-content: center; }
 
-#profileavatar { border: 1px solid #ddd;
-                 padding: 2px;
+
+#profileavatar { border: 1px solid whitesmoke;
+                 padding: 16px;
                  margin: 16px;
                  border-radius: 4%;
                  max-width: 240px;
@@ -218,41 +237,54 @@ textarea { min-height: 240px;
 
 #divprofileinfo { display: flex; }
 
+
 .profileinfo { font-family: 'Jura', sans-serif;
                font-size: 20px;
                font-weight: bolder;
-               color: dimgrey;
+               color: #edeef7;
                padding: 8px; }
 
-#cantidadseguidores { color:orangered;
-                      font-size: 24px; }
 
-#cantidadseguidos { color:limegreen;
-                    font-size: 24px; }
+#cantidadseguidores { color:orangered;
+                      font-size: 32px; }
+
+
+#cantidadseguidos { color: greenyellow;
+                    font-size: 32px; }
+
 
 #divbuttonfollow { text-align: center; }
                    
+
 #buttonfollow { font-family: 'Jura', sans-serif;
                 font-size: 20px;
-                font-weight:700;
-                background-color: #B1B2E0;
-                border-color: #a2a2a2;
-                border-radius: 8px;
                 box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
-                color: #242424;
                 width: 128px;
                 padding: 4px;
                 margin-top: 8px;
                 height: max-content; }   
 
+
 #buttonfollow:hover { color: whitesmoke;
                       background-color: royalblue;}
 
+
+.editcontents { display: none;
+                visibility:hidden;
+                background: #ededed;
+                font-family: 'Jura', sans-serif;
+                font-size: large;
+                border: "1px solid";
+                border-radius: 4px;
+                padding: 8px;}
+
+
 a.enlaceedit {float: left;
-             font-family: 'Jura', sans-serif;
-             font-size: 20px;
-             font-weight:bold;
-             color: indianred; }
+              font-family: 'Jura', sans-serif;
+              font-size: 20px;
+              font-weight:bold;
+              color: indianred; }
+
 
 a.enlaceedit:hover { text-decoration:none; 
                      color:#ff8000;

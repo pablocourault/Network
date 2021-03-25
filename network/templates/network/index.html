@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="container cuerpo">
+<div class="container-fluid cuerpo">
 
     <div class="row">
 
@@ -33,11 +33,11 @@
 
             <div id="formulario">
             <form id="compose-form">
-                <textarea id="compose-post"></textarea>
-                <input type="submit" class="btn btn-primary botonenviar" value="Send"/>
+                <div> <textarea id="compose-post"></textarea> </div>
+                <div> <input type="submit" class="btn btn-primary botonenviar" value="Send"/> </div>
             </form>
             <div id="successfully">posted successfully
-                <span class="material-icons">
+                <span class="material-icons" id="successfullyicon">
                     sentiment_satisfied_alt
                     </span>
             </div>
@@ -47,8 +47,8 @@
 
             <div id="formulario">
             <form id="compose-form">
-                <textarea disabled></textarea>
-                <input type="submit" class="btn btn-primary botonenviar" value="Send" disabled/>
+                <div> <textarea disabled></textarea> </div>
+                <div> <input type="submit" class="btn btn-warning botonenviar" value="Send" disabled/> </div>
             </form>
             </div>
 
@@ -62,10 +62,12 @@
             {% for post in page_obj %}
             {# Each "post" is a Posts model object. #}
             <div class="post">
-                <div class="postdetails"> <a href="{% url 'profile' post.usuario %}"> <img src="/static/network/avatars/{{post.avatar}}" class="postavatar"> <text class="postname">{{post.usuario}}</text> </a> <text class="postdate">{{post.post_date}}</text></div>
+                <div class="postdetails"> <a href="{% url 'profile' post.usuario %}"> <img src="/static/network/avatars/{{post.avatar}}" class="postavatar"> <text class="postname">{{post.usuario}}</text> </a> <text class="postdate">{{post.post_date}}</text><br></div>
                 <div class="postcontents" id='contents{{post.id}}'>{{post.contents}}</div> 
-
+ 
                 {% if user.is_authenticated %}
+
+                <textarea class="editcontents" id='editcontents{{post.id}}'>{{post.contents}}</textarea>
 
                 <div> 
                     {% if post.usuario == request.user %}

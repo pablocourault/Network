@@ -6,8 +6,9 @@
     <script src="{% static 'network/common.js' %}"></script>
 {% endblock %}
 
+
 {% block body %}
-<div class="container cuerpo">
+<div class="container-fluid cuerpo">
 
     <div class="row">
 
@@ -40,11 +41,17 @@
 
                 <form id="follow-form">
                     <div id="divbuttonfollow">
-                        <input type="hidden" id="usertofollow" value="{{ profile.usuario}}"/>
-                        <input type="submit" id="buttonfollow" value="{{ accion }}"/>
+                        <input type="hidden" id="usertofollow" value="{{ profile.usuario }}"/>
+                        <input type="submit" class="btn btn-primary" id="buttonfollow" value="{{ accion }}"/>
                     </div>
                 </form>
-  
+            
+            {% else %}
+
+            <form id="follow-form">
+                    <input type="submit" id="buttonfollow" value="" style="visibility: hidden ;"/>
+            </form>
+
             {% endif %}
 
             </div>
@@ -72,14 +79,16 @@
             {% for post in page_obj %}
             {# Each "post" is a Posts model object. #}
             <div class="post">
-                <div class="postdetails"> <a href="{% url 'profile' post.usuario %}"> <img src="/static/network/avatars/{{post.avatar}}" class="postavatar"> <text class="postname">{{post.usuario}}</text> </a> <text class="postdate">{{post.post_date}}</text></div>
-                <div class="postcontents">{{post.contents}}</div> 
+                <div class="postdetails"> <a href="{% url 'profile' post.usuario %}"> <img src="/static/network/avatars/{{post.avatar}}" class="postavatar"> <text class="postname">{{post.usuario}}</text> </a> <text class="postdate">{{post.post_date}}</text><br></div>
+                <div class="postcontents" id='contents{{post.id}}'>{{post.contents}}</div> 
 
                 {% if user.is_authenticated %}
 
+                <textarea class="editcontents" id='editcontents{{post.id}}'>{{post.contents}}</textarea>
+
                 <div> 
                     {% if post.usuario == request.user %}
-                    <br><a class="enlaceedit">Edit</a>
+                    <br><a class="enlaceedit" data-postid='{{post.id}}''>Edit</a>
                     {% endif %} 
                 </div>
                 

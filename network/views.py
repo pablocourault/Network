@@ -57,6 +57,7 @@ def register(request):
     if request.method == "POST":
         username = request.POST["username"]
         email = request.POST["email"]
+        avatarselected = request.POST["avatar"]
 
         # Ensure password matches confirmation
         password = request.POST["password"]
@@ -70,7 +71,7 @@ def register(request):
         try:
             user = User.objects.create_user(username, email, password)
             user.save()
-            profile = Profile(usuario=user)
+            profile = Profile(usuario=user, avatar=avatarselected)
             profile.save()
         except IntegrityError:
             return render(request, "network/register.html", {
@@ -79,7 +80,8 @@ def register(request):
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
     else:
-        return render(request, "network/register.html")
+        list = ['01','02','03','04','05','06','07','08','09',"10",'11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29']
+        return render(request, "network/register.html", {'list': list})
 
 @csrf_exempt
 @login_required

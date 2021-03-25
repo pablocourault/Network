@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    document.querySelector('#follow-form').addEventListener('submit', following); });
+    document.querySelector('#follow-form').addEventListener('submit', following); 
+
+    }
+    );
 
 function following()
   {
