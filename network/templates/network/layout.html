@@ -15,23 +15,25 @@
             
             <div class="row cabecera">
 
-                <div class="col-4">  
-                    <div>   
-                        <a href="/" id="title"> <i class="material-icons" id="icontitle">grain</i>&nbsp;Network</a>
-                    </div>
+                <div class="col-1" id="col-iconcabecera">  
+                    <i class="material-icons" id="iconcabecera">grain</i> 
+                </div>
+
+                <div class="col-3" id="titlecabecera">                   
+                        Network
                 </div>
 
                 {% if user.is_authenticated %}
 
-                <div class="col-5"> 
+                <div class="col-3"> 
 
                 </div>
                 
-                <div class="col-2"> 
+                <div class="col-3"> 
                     <a class="nav-link" href="{% url 'profile' user.username %}" ><text id="username">{{ user.username }}</text></a>                  
                 </div>
 
-                <div class="col-1"> 
+                <div class="col-2"> 
                     <a href="{% url 'profile' user.username %}" ><img src="/static/network/avatars/{{perfil.avatar}}" id="avatar"> </a>
                 </div>
 

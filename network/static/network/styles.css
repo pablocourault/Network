@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700;800;900&display=swap');
 
+/* https://html.crumina.net/html-olympus/ */
 
 @keyframes hide {
         0% {
@@ -30,14 +31,15 @@ body { background: linear-gradient(to top, #23495c, black); }
 a { font-family: 'Roboto', sans-serif;
     color: dimgrey; }
 
-a:hover { text-decoration:none; color:#ff8000;font-weight:600;text-transform:none; }
+a:hover { text-decoration:none; color: #ff5e3a;font-weight:600;text-transform:none; }
 
 
 textarea { min-height: 240px;
            min-width: 320px;
            border: 1px solid whitesmoke;
            border-radius: 4px; 
-           background: #edeef7;
+           /* background: #edeef7; */
+           background: #fafbfd;
            padding: 32px;
            font-family: 'Roboto', sans-serif;
            font-size:larger;
@@ -46,36 +48,44 @@ textarea { min-height: 240px;
            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); }
 
 
-.cabecera { background: linear-gradient(to right,#7868e6 0%,#b8b5ff 100%); 
-            height: 80px;
-            padding-top: 4px;}
+.cabecera { /* background: linear-gradient(to right,#7868e6 0%,#b8b5ff 100%); */
+            background: #515365;
+            height: 82px;
+            flex-wrap: nowrap;
+            justify-content:baseline }
 
 
 .menu { background: #ededed; }
 
 
-.cuerpo { background: linear-gradient(to right,#7868e6 0%,#b8b5ff 100%);
-          padding-bottom: 8px; }
+.cuerpo { /* background: linear-gradient(to right,#7868e6 0%,#b8b5ff 100%); */
+          background: #e6ecf5 }
 
 
 .icono { vertical-align:text-bottom; }
 
 
-#title { font-family: 'Fascinate', cursive;
-         font-size:  48px;
-         /*color: #01E0FF; */
-         color: #e4fbff;
-         margin-left: 16px; }
+#titlecabecera { font-family: 'Fascinate', cursive;
+                 font-size:  48px;
+                 /* color: #e4fbff; */
+                 color: #fff;
+                 margin-left: 16px; }
 
-#icontitle { vertical-align:text-bottom;
-             font-size: 56px;
-             color: #e4fbff; }
+#col-iconcabecera { background-color: #ff5e3a;
+                    text-align: center;}   
+
+
+#iconcabecera { vertical-align:text-bottom;
+                font-size: 72px;
+                /* color: #e4fbff; */
+                color: #fff; }
 
 
 .titleNewPost { font-family: 'Jura', sans-serif;
                 font-size:  32px;
                 font-weight: bolder;
-                color: #e4fbff;
+                /* color: #e4fbff; */
+                color:  #515365;
                 text-align: center;
                 vertical-align: text-bottom;
                 padding-top: 16px;
@@ -91,28 +101,28 @@ textarea { min-height: 240px;
                               padding-top: 16px;
                               padding-bottom: 16px; }
 
-    
 
 #formLogin { width: 40%;
              margin: 0 auto; }
 
- #formRegister { width: 40%;
-                 margin: 0 auto; }
+
+#formRegister { width: 40%;
+                margin: 0 auto; }
 
 
 #avatar { border: 1px solid #ddd;
           padding: 4px;
           margin-top: 6px;
           border-radius: 4%;
-          max-width: 48px;
+          max-width: 60px;
           height: auto;
           background-color: whitesmoke;
-          float:right; }
+          vertical-align: baseline;}
 
 #username { font-family: 'Jura', sans-serif;
             font-size:  32px;
             font-weight: 900;
-            color: #e4fbff;
+            color: #fff;
             float: right; }
 
 
@@ -153,15 +163,22 @@ textarea { min-height: 240px;
 .botonenviar { font-family: 'Jura', sans-serif;
                font-size:  24px;
                border-radius: 8px;
-               box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
-               color: #e4fbff;
+               /* box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); */
+               background: #ff5e3a;
+               border-color: #ff5e3a;
+               opacity: 1;
+               color: #fff;
                margin-top: 32px; }
+
+.botonenviar:hover { background: #ff7658;
+                     border-color: #ff5e3a; }
 
 
 .post { height: auto;
         min-width: 640px;
         max-width: 640px;
-        background: #edeef7;
+        /* background: #edeef7; */
+        background: #fafbfd;
         border: 1px solid #e4fbff;
         border-radius: 4px;
         padding: 8px;
@@ -241,7 +258,7 @@ textarea { min-height: 240px;
 .profileinfo { font-family: 'Jura', sans-serif;
                font-size: 20px;
                font-weight: bolder;
-               color: #edeef7;
+               color: #515365;
                padding: 8px; }
 
 
@@ -249,7 +266,7 @@ textarea { min-height: 240px;
                       font-size: 32px; }
 
 
-#cantidadseguidos { color: greenyellow;
+#cantidadseguidos { color: green;
                     font-size: 32px; }
 
 
@@ -258,15 +275,18 @@ textarea { min-height: 240px;
 
 #buttonfollow { font-family: 'Jura', sans-serif;
                 font-size: 20px;
-                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+                /* box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); */
+                background: #ff5e3a;
+                border-color: #ff5e3a;
+                color: #fff;
                 width: 128px;
                 padding: 4px;
                 margin-top: 8px;
                 height: max-content; }   
 
 
-#buttonfollow:hover { color: whitesmoke;
-                      background-color: royalblue;}
+#buttonfollow:hover { background: #ff7658;
+                     border-color: #ff5e3a; }
 
 
 .editcontents { display: none;
