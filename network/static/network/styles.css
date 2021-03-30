@@ -25,8 +25,6 @@
     }
     
 
-body { background: linear-gradient(to top, #23495c, black); }
-
 
 a { font-family: 'Roboto', sans-serif;
     color: dimgrey; }
@@ -64,6 +62,20 @@ textarea { min-height: 240px;
 
 .icono { vertical-align:text-bottom; }
 
+.pagelinkcorrect { background: #ff5e3a;
+                   border-color: #ff5e3a;
+                   color: #fff; }
+
+.pagelinkcorrect:hover { background: #EF3509;
+                         border-color: #ff5e3a;
+                         color: #fff}
+
+.activo { background: #EF3509;
+          font-weight: bolder; }
+
+
+
+
 
 #titlecabecera { font-family: 'Fascinate', cursive;
                  font-size:  48px;
@@ -75,7 +87,7 @@ textarea { min-height: 240px;
                     text-align: center;}   
 
 
-#iconcabecera { vertical-align:text-bottom;
+#iconcabecera { padding-top: 4px;
                 font-size: 72px;
                 /* color: #e4fbff; */
                 color: #fff; }
@@ -110,12 +122,12 @@ textarea { min-height: 240px;
                 margin: 0 auto; }
 
 
-#avatar { border: 1px solid #ddd;
+#avatar { border: 2px solid #fff;
           padding: 4px;
           margin-top: 6px;
-          border-radius: 4%;
-          max-width: 60px;
-          height: auto;
+          border-radius: 100%;
+          width: 64px;
+          height: 64px;
           background-color: whitesmoke;
           vertical-align: baseline;}
 
@@ -193,9 +205,9 @@ textarea { min-height: 240px;
 .postavatar { border: 1px solid whitesmoke;
               padding: 2px;
               margin: 2px;
-              border-radius: 4%;
-              max-width: 48px;
-              height: auto;
+              border-radius: 100%;
+              width: 54px;
+              height: 54px;
               background-color: whitesmoke;
               float:left; }
 
@@ -238,17 +250,17 @@ textarea { min-height: 240px;
 
 #divprofile { display:grid;
               grid-row-gap: 2px;
-              justify-content: center; }
+              justify-content: center;
+              background: #fafbfd; }
 
 
-#profileavatar { border: 1px solid whitesmoke;
-                 padding: 16px;
-                 margin: 16px;
-                 border-radius: 4%;
-                 max-width: 240px;
-                 min-height: 240px;
-                 min-width: 240px;
-                 background-color: whitesmoke;
+#profileavatar { border: 4px solid #fff;
+                 padding: 8px;
+                 margin: 8px;
+                 border-radius: 100%;
+                 width: 240px;
+                 height: 240px;
+                 background-color: #e6ecf5;
                  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); }
 
 
@@ -270,7 +282,8 @@ textarea { min-height: 240px;
                     font-size: 32px; }
 
 
-#divbuttonfollow { text-align: center; }
+#divbuttonfollow { text-align: center;
+                   padding-top: 16px; }
                    
 
 #buttonfollow { font-family: 'Jura', sans-serif;
@@ -312,4 +325,3 @@ a.enlaceedit:hover { text-decoration:none;
                      text-transform:none;
                      cursor: pointer }
 
-            
