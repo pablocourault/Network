@@ -16,6 +16,7 @@
     {% endif %}
 
     <div id="formLogin">
+    <div id="formLoginFields">
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
@@ -24,10 +25,11 @@
         <div class="form-group">
             <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
-        <input class="btn btn-primary" type="submit" value="Login">
+        <center> <input class="btn btn-primary botonenviar" type="submit" value="Login"> </center>
     </form>
     <br>
     Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+    </div>
     </div>
 
 </div>

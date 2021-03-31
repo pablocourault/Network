@@ -12,22 +12,29 @@
 
     <div class="row">
 
-        <div class="col-4">
-           <div class="titleNewPost">{{ profilename }}</div>
+        <div class="col-lg-1 col-sm-12"></div>
+
+        <div class="col-lg-3 col-sm-12">
+
         </div>
 
-        <div class="col-8">
+        <div class="col-lg-8 col-sm-12">
             <div class="titleNewPost">Posts</div>
+
         </div>
     </div>
 
     <div class="row" id="principal">
 
-        <div class="col-4">
+        <div class="col-lg-1  col-sm-12"></div>
+
+        <div class="col-lg-3  col-sm-12" id="col-profile">
 
             {% if user.is_authenticated %}
 
             <div id="divprofile">
+
+            <div class="titleNewPost">{{ profilename }}</div>
 
             <div> <img src="/static/network/avatars/{{profile.avatar}}" id="profileavatar"> </div>
 
@@ -75,7 +82,7 @@
 
         </div>
 
-        <div class="col-8" id="posts">
+        <div class="col-lg-8  col-sm-12" id="posts">
             
             {% for post in page_obj %}
             {# Each "post" is a Posts model object. #}

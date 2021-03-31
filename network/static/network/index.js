@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
 
    document.querySelector('#compose-form').addEventListener('submit', sendpost);
+
+   var altura = window.innerHeight-194;
+    
+   document.querySelector('#posts').style.height = altura+'px';
+   
 });
 
 function sendpost() {

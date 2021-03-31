@@ -11,13 +11,13 @@
 
     <div class="row">
 
-        <div class="col-4">
+        <div class="col-lg-4 col-sm-12">
            <div class="titleNewPost">New Post</div>
         </div>
 
-        <div class="col-8">
+        <div class="col-lg-8 col-sm-12">
             {% if following %}
-            <div class="titleNewPost">Posts by users followed </div>
+            <div class="titleNewPost">Followed Users</div>
             {% else %}
             <div class="titleNewPost">Posts</div>
             {% endif %}
@@ -27,14 +27,14 @@
 
     <div class="row" id="principal">
 
-        <div class="col-4">
+        <div class="col-lg-4 col-sm-12">
 
             {% if user.is_authenticated %}
 
             <div id="formulario">
             <form id="compose-form">
                 <div> <textarea id="compose-post"></textarea> </div>
-                <div> <input type="submit" class="btn btn-primary botonenviar" value="Send"/> </div>
+                <div> <input type="submit" class="botonenviar" value="Send"/> </div>
             </form>
             <div id="successfully">posted successfully
                 <span class="material-icons" id="successfullyicon">
@@ -57,7 +57,7 @@
 
         </div>
 
-        <div class="col-8" id="posts">
+        <div class="col-lg-8 col-sm-12" id="posts">
             
             {% for post in page_obj %}
             {# Each "post" is a Posts model object. #}
