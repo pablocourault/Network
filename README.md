@@ -24,3 +24,5 @@ Design a Twitter-like social network website for making posts and following user
 
 
 ![alt text](https://github.com/pablocourault/Network/blob/main/network2.png?raw=true)
+
+![alt text](https://github.com/pablocourault/Network/blob/main/network3.png?raw=true)
